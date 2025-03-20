@@ -5,24 +5,22 @@ body {
     margin: 0px;
 }
 header {
-    background-color: darkred; /* Тёмно-красный фон */
-    color: white; /* Белый цвет текста */
+    background-color: darkred; 
+    color: white; 
     padding: 20px;
-    text-align: center; /* Выравнивание текста по центру */
+    text-align: center; 
 }
 
-/* Стили для main */
 main {
-    background-color: #f0f0f0; /* Светлый фон для основного контента */
+    background-color: #f0f0f0; 
     padding: 30px;
     margin: 20px;
-    border-radius: 8px; /* Скругленные углы */
+    border-radius: 8px; 
 }
 
-/* Стили для footer */
 footer {
-    background-color: darkred; /* Тёмный фон */
-    color: white; /* Белый текст */
+    background-color: darkred; 
+    color: white; 
     padding: 15px;
-    text-align: center; /* Выравнивание текста по центру */
+    text-align: center; 
 }
