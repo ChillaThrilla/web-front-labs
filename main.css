@@ -24,6 +24,28 @@ footer {
     padding: 15px;
     text-align: center; 
 }
-a{
+a {
+    color: #ff6600;
     text-decoration: none;
+}
+
+a:link {
+    color: darkred;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff0000;
+    text-decoration: underline;
+    text-shadow: 2px 2px 5px #ff6600
+}
+
+a:active {
+    color: black;
+    opacity: 0.3;
 }
