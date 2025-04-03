@@ -27,6 +27,7 @@ footer {
 a {
     color: #ff6600;
     text-decoration: none;
+    transition: 1s 2s;
 }
 
 a:link {
@@ -42,7 +43,8 @@ a:visited {
 a:hover {
     color: #ff0000;
     text-decoration: underline;
-    text-shadow: 2px 2px 5px #ff6600
+    text-shadow: 2px 2px 5px #ff6600;
+    transition: 0.3s;
 }
 
 a:active {
