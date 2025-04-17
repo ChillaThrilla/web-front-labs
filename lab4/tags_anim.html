@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чинкевич Кирилл Алексеевич. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <style>
+        main {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        .tag {
+            position: absolute;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            transform-origin: center;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+
+        .tag:hover {
+            z-index: 999;
+            transform: scale(1.5) rotate(var(--rotate));
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            animation-play-state: paused;
+        }
+
+        .tag1  { font-size: 36px; color: black; --rotate: 0deg; animation: float1 10s infinite; }
+        .tag2  { font-size: 18px; color: green; --rotate: -10deg; animation: float2 9s infinite; }
+        .tag3  { font-size: 22px; color: blue; --rotate: 0deg; animation: float3 12s infinite; }
+        .tag4  { font-size: 28px; color: red; --rotate: -5deg; animation: float4 11s infinite; }
+        .tag5  { font-size: 24px; color: darkgreen; --rotate: 8deg; animation: float5 13s infinite; }
+        .tag6  { font-size: 20px; color: gold; --rotate: 5deg; animation: float6 10s infinite; }
+        .tag7  { font-size: 14px; color: magenta; --rotate: -12deg; animation: float7 8s infinite; }
+        .tag8  { font-size: 18px; color: black; --rotate: 15deg; animation: float8 10s infinite; }
+        .tag9  { font-size: 20px; color: gray; --rotate: -7deg; animation: float9 9s infinite; }
+        .tag10 { font-size: 12px; color: purple; --rotate: 10deg; animation: float10 12s infinite; }
+        .tag11 { font-size: 42px; color: rgba(0,0,0,0.5); --rotate: -20deg; animation: float11 14s infinite; }
+        .tag12 { font-size: 30px; color: fuchsia; --rotate: 10deg; animation: float12 11s infinite; }
+        .tag13 { font-size: 24px; color: deeppink; --rotate: -5deg; animation: float13 13s infinite; }
+        .tag14 { font-size: 20px; color: black; --rotate: 0deg; animation: float14 9s infinite; }
+        .tag15 { font-size: 16px; color: black; --rotate: 5deg; animation: float15 10s infinite; }
+        .tag16 { font-size: 14px; color: green; --rotate: -15deg; animation: float16 8s infinite; }
+        .tag17 { font-size: 16px; color: limegreen; --rotate: -20deg; animation: float17 12s infinite; }
+        .tag18 { font-size: 18px; color: gray; --rotate: 10deg; animation: float18 11s infinite; }
+
+        @keyframes float1  { 0% {top:10%; left:10%;} 50% {top:15%; left:15%;} 100% {top:10%; left:10%;} }
+        @keyframes float2  { 0% {top:20%; left:30%;} 50% {top:25%; left:35%;} 100% {top:20%; left:30%;} }
+        @keyframes float3  { 0% {top:30%; left:50%;} 50% {top:35%; left:55%;} 100% {top:30%; left:50%;} }
+        @keyframes float4  { 0% {top:40%; left:60%;} 50% {top:45%; left:55%;} 100% {top:40%; left:60%;} }
+        @keyframes float5  { 0% {top:50%; left:20%;} 50% {top:55%; left:25%;} 100% {top:50%; left:20%;} }
+        @keyframes float6  { 0% {top:60%; left:10%;} 50% {top:65%; left:15%;} 100% {top:60%; left:10%;} }
+        @keyframes float7  { 0% {top:70%; left:30%;} 50% {top:75%; left:35%;} 100% {top:70%; left:30%;} }
+        @keyframes float8  { 0% {top:20%; left:70%;} 50% {top:25%; left:75%;} 100% {top:20%; left:70%;} }
+        @keyframes float9  { 0% {top:30%; left:80%;} 50% {top:35%; left:85%;} 100% {top:30%; left:80%;} }
+        @keyframes float10 { 0% {top:40%; left:10%;} 50% {top:45%; left:15%;} 100% {top:40%; left:10%;} }
+        @keyframes float11 { 0% {top:10%; left:60%;} 50% {top:15%; left:65%;} 100% {top:10%; left:60%;} }
+        @keyframes float12 { 0% {top:15%; left:35%;} 50% {top:20%; left:40%;} 100% {top:15%; left:35%;} }
+        @keyframes float13 { 0% {top:25%; left:20%;} 50% {top:30%; left:25%;} 100% {top:25%; left:20%;} }
+        @keyframes float14 { 0% {top:35%; left:70%;} 50% {top:40%; left:75%;} 100% {top:35%; left:70%;} }
+        @keyframes float15 { 0% {top:45%; left:50%;} 50% {top:50%; left:55%;} 100% {top:45%; left:50%;} }
+        @keyframes float16 { 0% {top:55%; left:60%;} 50% {top:60%; left:65%;} 100% {top:55%; left:60%;} }
+        @keyframes float17 { 0% {top:65%; left:45%;} 50% {top:70%; left:50%;} 100% {top:65%; left:45%;} }
+        @keyframes float18 { 0% {top:75%; left:25%;} 50% {top:80%; left:30%;} 100% {top:75%; left:25%;} }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+        <hr>
+    </header>
+
+    <main>
+        <div class="tag tag1">position</div>
+        <div class="tag tag2">absolute</div>
+        <div class="tag tag3">relative</div>
+        <div class="tag tag4">fixed</div>
+        <div class="tag tag5">sticky</div>
+        <div class="tag tag6">top</div>
+        <div class="tag tag7">bottom</div>
+        <div class="tag tag8">left</div>
+        <div class="tag tag9">right</div>
+        <div class="tag tag10">z-index</div>
+        <div class="tag tag11">overflow</div>
+        <div class="tag tag12">margin</div>
+        <div class="tag tag13">padding</div>
+        <div class="tag tag14">display</div>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Чинкевич Кирилл, ФБИ-32, 2 курс, 2025
+    </footer>
+</body>
+</html>
