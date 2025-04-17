@@ -30,17 +30,16 @@
             user-select: none;
             cursor: pointer;
             font-family: "Arial", sans-serif;
-            transform: rotate(-10deg); /* Изначально наклоняем все теги */
+            transform: rotate(-10deg); 
         }
 
-        /* Наведение на тег */
+
         .tag:hover {
-            transform: scale(1.5) rotate(-10deg); /* Оставляем наклон неизменным */
+            transform: scale(1.5) rotate(-10deg); 
             text-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            z-index: 10; /* Поднятие тега на передний план */
+            z-index: 10; 
         }
 
-        /* Стили для различных тегов */
         .tag:nth-child(1) { top: 10%; left: 20%; font-size: 28px; color: #FF6347; font-weight: bold; transform: rotate(-18deg); }
         .tag:nth-child(2) { top: 25%; left: 10%; font-size: 32px; color: #ff7e5f; font-weight: bold; transform: rotate(25deg); }
         .tag:nth-child(3) { top: 40%; left: 30%; font-size: 40px; color: #4682B4; font-style: italic; transform: rotate(-30deg); }
