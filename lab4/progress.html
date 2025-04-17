@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чинкевич Кирилл Алексеевич. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon-32x32.png">
+    <link rel="icon" href="favicon-16x16.png">
+    <style>
+        main {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #add8e6;
+        }
+
+        .progress-container {
+            width: 400px;             
+            padding: 30px 20px;
+            background: #fff;
+            border: 2px solid #800000;
+            box-sizing: border-box;
+            text-align: center;
+            position: relative; /* Для корректного позиционирования кнопки */
+        }
+
+        .progress-container .title {
+            margin: 0 0 40px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #800000;
+        }
+
+        .progress-container .btn {
+            display: inline-block;
+            padding: 12px 40px;
+            margin-top: 30px; 
+            font-size: 18px;
+            color: #fff;
+            background: #00008B;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 4px 4px 12px rgba(0,0,0,0.3);
+            transition: box-shadow 0.25s;
+            user-select: none;
+            position: relative; 
+            
+        }
+
+        .progress-container .btn:hover {
+            box-shadow: 6px 6px 16px rgba(0,0,0,0.5);
+        }
+
+        .progress-container .btn:active {
+            box-shadow: none;
+        }
+
+        .progress-container .progress-bar {
+            position: absolute; 
+            top: 85px; 
+            align-items: center;
+            width: 90%;
+            height: 28px;
+            border: 2px solid #800000;
+            border-radius: 4px;
+            overflow: hidden;
+            background: transparent;
+        }
+        
+
+        .progress-container .progress-fill {
+            width: 0;
+            height: 100%;
+            background: #800000;
+            transition: width 5s linear;
+        }
+
+        .progress-container .btn:active
+            + .progress-bar
+            .progress-fill {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+        <hr>
+    </header>
+    
+    <main>
+        <div class="progress-container">
+            <div class="title">Степень прогресса</div>
+            <button class="btn">Нажмите и удерживайте</button>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Чинкевич Кирилл, ФБИ-32, 2 курс, 2025
+    </footer>
+</body>
+</html>
