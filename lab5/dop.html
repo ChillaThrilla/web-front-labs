@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Чинкевич Кирилл Алексеевич. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon-32x32.png">
+    <link rel="icon" href="favicon-16x16.png">
+    <style>
+        body {
+            text-align: center;
+            padding: 20px;
+        }
+        img {
+            max-width: 600px;
+            transition: 0.3s;
+        }
+        #info {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        #help {
+            margin-top: 30px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+    
+     <script>
+        function changeFilter() {
+            let img = document.getElementById("image");
+            let info = document.getElementById("info");
+            let x = event.offsetX;
+            let w = img.offsetWidth;
+            let ratio = x / w;
+
+            let filter = "grayscale";
+            let value = Math.round(ratio * 100) + "%";
+
+            if (event.ctrlKey) {
+                filter = "blur";
+                value = (ratio * 10).toFixed(1) + "px";
+            } else if (event.altKey) {
+                filter = "hue-rotate";
+                value = Math.round(ratio * 360) + "deg";
+            } else if (event.shiftKey) {
+                filter = "sepia";
+                value = Math.round(ratio * 100) + "%";
+            }
+
+            img.style.filter = filter + "(" + value + ")";
+            info.innerText = "Фильтр: " + filter + "(" + value + ")";
+        }
+
+        function resetFilter() {
+            let img = document.getElementById("image");
+            let info = document.getElementById("info");
+            img.style.filter = "none";
+            info.innerText = "Фильтр: нет";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+        <hr>
+    </header>
+
+    <main>
+        <img src="i.webp" id="image" onmousemove="changeFilter()" onmouseleave="resetFilter()">
+        <div id="info">Фильтр: grayscale(0%)</div>
+        <div id="help">
+            Наведите мышь на изображение. Чем правее — тем сильнее эффект.<br>
+            Зажмите Ctrl — blur, Alt — hue-rotate, Shift — sepia.
+        </div>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Чинкевич Кирилл, ФБИ-32, 2 курс, 2025
+    </footer>
+
+</body>
+</html>
