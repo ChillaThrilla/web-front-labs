@@ -101,6 +101,54 @@
             let result = a / b;
             alert("Отношение числа " + a + " к числу " + b + " равно " + result);
         }
+
+        function showPow() {
+            let inputA = document.getElementById("numberA");
+            let inputB = document.getElementById("numberB");
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            
+            if (a == 0 & b == 0) {
+                alert("Нельзя возводить 0 в 0!");
+                inputA.focus();
+                inputA.select();
+                inputA.style.color = "red";
+                inputA.style.borderColor = "red";
+                inputB.style.color = "red";
+                inputB.style.borderColor = "red";
+                return;
+            }
+            
+            inputA.style.color = '';
+            inputA.style.borderColor = '';
+            inputB.style.color = '';
+            inputB.style.borderColor = '';
+
+            if(isNaN(a)) {
+                alert('Введите числовое значение в первое поле')
+                inputA.style.color = "red";
+                inputA.style.borderColor = "red";
+                return
+            }
+
+            inputA.style.color = '';
+            inputA.style.borderColor = '';
+
+            if(isNaN(b)) {
+                alert('Введите числовое значение во второе поле')
+                inputB.style.color = "red";
+                inputB.style.borderColor = "red";
+                return
+            }
+
+            inputB.style.color = '';
+            inputB.style.borderColor = '';
+
+            let result = a ** b;
+            alert("Число " + a + " в степени " + b + " равно " + result);
+        }
+
         function showAuthor() {
             let author = "Автор страницы:\nЧинкевич Кирилл Алексеевич";
             alert(author);
@@ -126,6 +174,7 @@
         <div class="message" onclick="showDif()">Найти разность чисел</div>
         <div class="message" onclick="showProd()">Найти произведение чисел</div>
         <div class="message" onclick="showDiv()">Найти отношение чисел</div>
+        <div class="message" onclick="showPow()">Возвести в степень</div>
         <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
     </main>
 
