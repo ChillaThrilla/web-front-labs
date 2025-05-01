@@ -23,6 +23,16 @@
             
         }
 
+        label {
+            display: block;
+        }
+        #output {
+            border: 3px solid;
+            width: 300px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
     </style>
 
     <script>
@@ -159,6 +169,14 @@
             alert(welcome);
         }
 
+        function changeOutput(buttonNum, backColor, textColor, borderSt, borderRad) {
+            let output = document.getElementById('output');
+            output.innerHTML = 'Нажата кнопка' + ' ' + buttonNum;
+            output.style.backgroundColor = backColor;
+            output.style.color = textColor;
+            output.style.borderStyle = borderSt;
+            output.style.borderRadius = borderRad;
+        }
     </script>
 </head>
 <body>
@@ -176,6 +194,15 @@
         <div class="message" onclick="showDiv()">Найти отношение чисел</div>
         <div class="message" onclick="showPow()">Возвести в степень</div>
         <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+    
+        <div>
+            <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'red', 'yellow', 'solid', '10px')">
+            <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'lime', 'dashed', '0px')">
+            <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'lightcoral', 'YellowGreen', 'double', '15px' )">
+            <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'SkyBlue', 'DarkViolet', 'groove', '20px ')">
+        </div>
+
+        <div id="output" style="margin-top: 10px;"></div>
     </main>
 
     <footer ondblclick="showWelcome()" style="cursor: pointer;">
