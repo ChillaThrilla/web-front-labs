@@ -11,14 +11,24 @@
     <script>
         function showMutipleTable () {
             let tbl = document.getElementById('mtable');
+            let start = parseInt(document.getElementById('start').value)
+            let multiplier = parseInt(document.getElementById('multiplier').value)
+            let end = parseInt(document.getElementById('end').value)
+                if (start > end) {
+                    tbl.innerHTML = `<p style="color: red;">Начальное значение не может быть больше конечного!</p>`;
+                    return;
+                }    
             tbl.innerHTML = '<h1>Таблица умножения</h1>';
-            for(i = 1; i <= 10; i++) {
-                let s = `<div>${i} * 7 = ${i*7}</div>`;
-                tbl.innerHTML += s;
-            }
+                for (let i = start; i <= end; i++) {
+                    tbl.innerHTML += `<p>${i} * ${multiplier} = ${i * multiplier}</p>`;
+                }
         }
-
     </script>
+    <style>
+        #controls label {
+            display:block;
+        }
+    </style>
 </head>
 <body onload="showMutipleTable()">
     <header>
@@ -28,6 +38,13 @@
     
     <main>
         <div id="mtable"></div>
+        <hr>
+        <div id="controls">
+            <label>Умножить на: <input type="number" id="multiplier" value="7"></label><br>
+            <label>Начать с: <input type="number" id="start" value="1"></label><br>
+            <label>Закончить на: <input type="number" id="end" value="10"></label><br>
+            <button onclick="showMutipleTable()">Таблица</button>
+        </div>
     </main>
 
     <footer>
