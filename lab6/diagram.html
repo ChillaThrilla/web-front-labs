@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чинкевич Кирилл Алексеевич. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../lab3/favicon.ico">
+    <link rel="icon" href="../lab3/favicon-32x32.png">
+    <link rel="icon" href="../lab3/favicon-16x16.png">
+    <style>
+
+        #diag {
+            display: flex;           
+            align-items: flex-end;   
+            height: 700px;           
+            width: 900px;
+            border: 3px solid red;
+            border-radius: 10px;
+        }
+
+        .bar {
+            text-align: center;
+            color: aliceblue;
+            width: 50px;
+            background-color: gray;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        function showDiagram() {
+            let data = [52, 47, 24, 91, 150, 8, 73, 11, 99, 63];
+            let colors = ['red', 'green', 'blue', 'orange', 'purple', 'teal', 'pink', 'brown', 'navy', 'gold'];
+            let bars = document.getElementsByClassName('bar');
+            const diagWidth = document.getElementById('diag').clientHeight;
+            const maxData = Math.max(...data);
+            const k = diagWidth / maxData * 0.9;
+            for(let i = 0; i < data.length; i++) {
+                bars[i].style.height = k*data[i] + 'px';         
+                bars[i].style.backgroundColor = colors[i];     
+                bars[i].textContent = data[i]; 
+            }
+        }
+
+    </script>
+</head>
+<body onload="showDiagram()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+        <hr>
+    </header>
+    
+    <main>
+        <div id="diag">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Чинкевич Кирилл, ФБИ-32, 2 курс, 2025
+    </footer>
+</body>
+</html>
