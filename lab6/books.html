@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Список книг — Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../lab3/favicon.ico">
+    <link rel="icon" href="../lab3/favicon-32x32.png">
+    <link rel="icon" href="../lab3/favicon-16x16.png">
+    
+    <style>
+        .book {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .bestseller {
+            border-color: gold;
+            background-color: #fff8dc;
+            font-weight: bold;
+        }
+        .out-of-stock {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+    
+    <script src="books.js" defer></script>
+
+    <script>
+        function showBooks() {
+            let booklist = document.getElementById('booklist');
+
+            for (let i = 0; i < books.length; i++) {
+                let book = books[i];
+                let classes = "book";
+
+                if (book.bestseller) {
+                    classes = classes + " bestseller";
+                }
+
+                if (book.inStock == false) {
+                    classes = classes + " out-of-stock";
+                }
+
+                let availabilityText = "";
+
+                if (book.inStock == false) {
+                    availabilityText = "<br><em>Книга отсутствует на складе</em>";
+                }
+
+                booklist.innerHTML = booklist.innerHTML +
+                    '<div class="' + classes + '">' +
+                    '<b>' + book.author + '.</b> ' +
+                    '<i>' + book.name + '</i> &mdash; ' + book.year + '<br>' +
+                    'Цена: ' + book.price + ' руб.' +
+                    availabilityText +
+                    '</div>';
+            }
+        }
+
+    </script>
+</head>
+<body onload="showBooks()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+        <hr>
+    </header>
+    <main>
+        <h2>Список книг</h2>
+        <div id="booklist"></div>
+    </main>
+    <footer>
+        <hr>
+        &copy; Чинкевич Кирилл, ФБИ-32, 2 курс, 2025
+    </footer>
+</body>
+</html>
