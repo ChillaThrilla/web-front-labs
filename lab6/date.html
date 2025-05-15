@@ -51,6 +51,7 @@
             document.getElementById('start-btn').disabled = false;
             document.getElementById('stop-btn').disabled = true;
         }
+        
 
         function showDate() {
             let out = document.getElementById('current-date');
@@ -66,12 +67,22 @@
                 "Дата и время для локали pt-BR (Бразилия): " + today.toLocaleString('pt-BR') + "<br>";
         }
 
-        window.onload = function () {
-            showDate();  
-        };
+        function startUpdatingTime() {
+            timerNum = setInterval(showDate, 1000);  
+            document.getElementById('start-time-btn').disabled = true;
+            document.getElementById('stop-time-btn').disabled = false;
+        }
+
+
+        function stopUpdatingTime() {
+            clearInterval(timerNum);  
+            document.getElementById('start-time-btn').disabled = false;
+            document.getElementById('stop-time-btn').disabled = true;
+        }
+
     </script>
 </head>
-<body>
+<body onload="showDate()">
     <header>
         НГТУ, ФБ, Лабораторная работа 6
         <hr>
@@ -80,8 +91,12 @@
     <main>
         <h2>Дата и Время</h2>
         <div id="current-date"></div>  
-        <div id="locale-dates"></div>  
+        <div id="locale-dates"></div> 
 
+        <div>
+            <button id="start-time-btn" onclick="startUpdatingTime()">Обновить время</button>
+            <button id="stop-time-btn" onclick="stopUpdatingTime()" disabled>Остановить обновление времени</button>
+        </div>
 
         <div>
             <button id="start-btn" onclick="startChangeColors()">Старт</button>
