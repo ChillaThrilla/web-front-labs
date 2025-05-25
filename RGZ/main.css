@@ -98,7 +98,7 @@ body {
   padding-bottom: 60px;
   background-color: #fff;
 }
-.company h1 {
+h1 {
   display: flex; 
   align-items: center; 
   justify-content: center; 

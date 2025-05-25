@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — Росинтер Ресторантс Холдинг</title>
+  <link rel="stylesheet" href="main.css">
+  <style>
+
+    section {
+      margin-top: 50px;
+    }
+    /* Контактный обзор */
+    .contact-overview .contact-grid {
+      display: flex;
+      gap: 20px;
+    }
+    .contact-overview .contact-grid > div {
+      flex: 1;
+      border: 5px solid #ff8300;
+      padding: 20px;
+      border-radius: 20px;
+      background-color: antiquewhite;
+    }
+    /* Представительства */
+    .branch-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .branch-card {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 15px;
+      flex: 1 1 300px;
+    }
+
+    .branch-card h3{
+        color: #ff8300;
+    }
+
+        /* Иконки в представительствах */
+    .branch-card img {
+      vertical-align: middle;
+      margin-top: -7px;
+    }
+    .map {
+        width:100%; 
+        height:400px; 
+        margin-top:15px; 
+        border-radius: 20px; 
+        border: 5px solid #ff8300; 
+        overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <a id="top"></a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="company.html" class="logo"><img src="logo_ru.svg"></a>
+      <button id="hamburger" class="hamburger" aria-label="Открыть меню">☰</button>
+      <nav id="nav-menu" class="site-nav">
+        <ul>
+          <li><a href="company.html">О компании</a></li>
+          <li><a href="news.html">Новости</a></li>
+          <li><a href="currency.html">Курс валют</a></li>
+          <li><a href="contact.html" class="active">Контакты</a></li>
+          <li><a href="video.html">Видео</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <h1>Контакты</h1>
+
+    <!-- Обзор контактных данных -->
+    <section class="contact-overview">
+      <div class="contact-grid">
+        <!-- Полное наименование -->
+        <div>
+          <h2>Полное наименование:</h2>
+          <p>Общество с ограниченной ответственностью «Ресторанная Объединенная Сеть 
+            и Новейшие Технологии Евроамериканского Развития РЕСТОРАНТС»</p>
+        </div>
+        <!-- Краткое наименование -->
+        <div>
+          <h2>Краткое наименование:</h2>
+          <p>ООО «РОСИНТЕР РЕСТОРАНТС»<br>
+             111024, г. Москва, ул. Душинская, д. 7, стр. 1<br>
+             +7 495 788 44 88<br>
+             info@rosinter.ru</p>
+        </div>
+        <!-- Реквизиты -->
+        <div>
+          <h2>Реквизиты:</h2>
+          <p>ИНН: 7737115648<br>
+             КПП: 772201001<br>
+             ОГРН: 1027739718280<br>
+             БИК: 044525148</p>
+          <p>Р/С: 40702810501360000019<br>
+             в Банк СОЮЗ (АО)<br>
+             К/С: 30101810845250000148</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Представительства -->
+    <section>
+      <h2>Представительства Росинтер в регионах России и СНГ</h2>
+      <div class="branch-grid">
+        <div class="branch-card">
+          <h3>Центральный офис</h3>
+          <p><img src="ICO1.png" style="height: 30px;"> 111024, Россия, Москва, ул. Душинская, 7, стр. 1</p>
+          <p><img src="ICO2.png" style="height: 30px;"> +7 (495) 788 44 88<br><img src="ICO2.png" style="height: 30px;"> +7 (495) 956 47 05</p>
+        </div>
+        <div class="branch-card">
+          <h3>Санкт-Петербург</h3>
+          <p><img src="ICO1.png" style="height: 30px;"> 196189, Россия, г. Санкт-Петербург, Аэропорт «Пулково‑1»</p>
+          <p><img src="ICO2.png" style="height: 30px;"> +7 (812) 677 97 70</p>
+        </div>
+        <div class="branch-card">
+          <h3>Казань</h3>
+          <p><img src="ICO1.png" style="height: 30px;"> 420011, Казань, Лаишевский район, Международный аэропорт «Казань», терминал 1А, 2 этаж, ресторан «IL Патио»</p>
+          <p><img src="ICO2.png" style="height: 30px;"> +7 (843) 567 89 01</p>
+        </div>
+        <div class="branch-card">
+          <h3>Нижний Новгород</h3>
+          <p><img src="ICO1.png" style="height: 30px;"> 603093, ул. Родионова 187‑В, ресторан «IL Патио»</p>
+          <p><img src="ICO2.png" style="height: 30px;"> +7 (831) 201 31 35</p>
+        </div>
+        <div class="branch-card">
+          <h3>Урал</h3>
+          <p><img src="ICO1.png" style="height: 30px;"> 620075, Россия, г. Екатеринбург, пр‑т Ленина, 43</p>
+          <p><img src="ICO2.png" style="height: 30px;"> +7 (343) 228 48 84</p>
+        </div>
+        <div class="branch-card">
+          <h3>Сибирь</h3>
+          <p><img src="ICO1.png" style="height: 30px;"> 630099, Россия, г. Новосибирск, ул. Революции, 28</p>
+          <p><img src="ICO2.png" style="height: 30px;"> +7 (383) 227 05 85</p>
+        </div>
+        <div class="branch-card">
+          <h3>Беларусь</h3>
+          <p><img src="ICO1.png" style="height: 30px;"> 220004, Республика Беларусь, г. Минск, проспект Победителей, д. 5, оф. 403</p>
+          <p><img src="ICO2.png" style="height: 30px;"> +375 17 211 24 94</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Интерактивная карта -->
+    <section>
+      <h2>Как нас найти</h2>
+      <div class="map">
+        <iframe
+          src="https://maps.google.com/maps?q=Москва,%20Душинская%207%20стр%201&z=14&output=embed"
+          width="100%" height="100%" frameborder="0" allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+  </main>
+  <a href="#top" class="to-top"><span class="to-top__text">▲</span></a>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2025 Росинтер Ресторантс Холдинг</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('nav-menu').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
