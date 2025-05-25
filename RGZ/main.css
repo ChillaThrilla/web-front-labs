@@ -84,12 +84,12 @@ body {
   color: #000000;    
 }
 .site-nav a:hover {
-  background-color: #f0f8ff;
-  color: #0073e6;
+  background-color: antiquewhite;
+  color: #ff8300;
 }
 .site-nav a.active {
-  background-color: #e6f2ff;
-  color: #0073e6;
+  background-color: antiquewhite;
+  color: #ff8300;
 }
 
 /* Основное содержимое */
@@ -139,16 +139,25 @@ body {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: #0073e6;
+  background-color: #ff8300;
   color: #fff;
   text-decoration: none;   
   border-radius: 50%;      
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   transition: background-color 0.3s;
   cursor: pointer;
+  border: 3px solid #ff8300;
+  
 }
 .to-top:hover {
-  background-color: #005bb5;
+  border: 3px solid #ff8300;
+  background-color: #ffffff;
+  color: #ff8300 ;
+}
+
+.to-top__text {
+  position: relative;
+  top: -2px;  /* смещение текста вверх */
 }
 
 /* Подвал сайта */
