@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Видео — Росинтер Ресторантс Холдинг</title>
+  <link rel="stylesheet" href="main.css">
+  <style>
+
+    .video-container {
+      display: flex;
+      justify-content: center;
+      margin: 30px auto;
+      max-width: 95%;
+    }
+    .video-wrapper {
+      border: 7px solid #ff8300;
+      border-radius: 15px;
+      overflow: hidden;
+      max-width: 1000px;
+      width: 100%;
+    }
+    .video-wrapper iframe {
+      width: 100%;
+      height: 562px;
+      display: block;
+    }
+    .video-description {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <a id="top"></a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="company.html" class="logo">
+        <img src="logo_ru.svg" alt="Логотип Росинтер">
+      </a>
+      <button id="hamburger" class="hamburger" aria-label="Открыть меню">☰</button>
+      <nav id="nav-menu" class="site-nav">
+        <ul>
+          <li><a href="company.html">О компании</a></li>
+          <li><a href="news.html">Новости</a></li>
+          <li><a href="currency.html">Курс валют</a></li>
+          <li><a href="contact.html">Контакты</a></li>
+          <li><a href="video.html" class="active">Видео</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+    <main class="container main-content">
+        <h1>Видео о компании «Росинтер Ресторантс Холдинг»</h1>
+        <div class="video-container">
+            <div class="video-wrapper">
+            <iframe width="720" height="405" src="https://rutube.ru/play/embed/b11b24dd3198eb41a73fa50172385352/" frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            </div>
+        </div>
+        <div class="video-description">
+            Представление сети ресторанов «Росинтер Ресторантс Холдинг»: IL Патио и Планета Суши.
+        </div>
+    </main>
+
+  <a href="#top" class="to-top"><span class="to-top__text">▲</span></a>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2025 «Росинтер Ресторантс Холдинг». Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => navMenu.classList.toggle('open'));
+  </script>
+</body>
+</html>
