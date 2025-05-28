@@ -9,6 +9,21 @@
     <link rel="shortcut icon" href="../lab3/favicon.ico">
     <link rel="icon" href="../lab3/favicon-32x32.png">
     <link rel="icon" href="../lab3/favicon-16x16.png">
+    <script>
+        function addNewBlock() {
+            let newBlock = document.createElement('div');
+            newBlock.style.backgroundColor = 'bisque';
+            newBlock.style.height = '80px';
+            newBlock.style.width = '60%';
+            newBlock.style.border = '5px solid darkred';
+            newBlock.style.borderRadius = '10px';
+            newBlock.style.margin = '20px';
+
+            
+
+            document.querySelector('main').appendChild(newBlock);
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -17,9 +32,7 @@
     </header>
     
     <main>
-        <ul>
-            <li><a href="bloks.html">Добавление блоков</a></li>
-        </ul>
+        <button onclick="addNewBlock()" style="background-color: lightblue; height: 60px;width: 200px; border: 3px solid darkred; border-radius: 10px; font-size: 18px; font-weight: bold; ">Добавить блок</button>
     </main>
 
     <footer>
