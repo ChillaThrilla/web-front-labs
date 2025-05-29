@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гистограммы погоды и влажности — Лабораторная работа 7</title>
+  <link rel="stylesheet" href="../main.css">
+  <style>
+    .chart-container { width:100%; margin:20px auto; text-align:center; }
+    .bar-wrapper { display:inline-block; width: 24px; margin:0 2px; vertical-align:bottom; }
+    .bar-temp { background:#ff8300; }
+    .bar-hum  { background:#0099ff; }
+    .data-label { font-size:10px; margin:2px 0; }
+    .axis-label {
+    font-size:12px;
+    margin-top:20px;
+    transform: rotate(-45deg);
+    }
+    .current-values { text-align:center; margin:15px; font-weight:bold; }
+    h2 { text-align:center; }
+  </style>
+    <script>
+    function showHistogram() {
+      const url = 'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=relative_humidity_2m,temperature_2m&current=temperature_2m,relative_humidity_2m&timezone=Asia%2FBangkok&past_days=1&forecast_days=1';
+      fetch(url)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(json) {
+            const times = json.hourly.time;
+            const temps = json.hourly.temperature_2m;
+            const hums = json.hourly.relative_humidity_2m;
+            const current = json.current;
+
+            // Вывод текущих значений
+            const curDiv = document.getElementById('current');
+            curDiv.innerText = `Сейчас: ${current.temperature_2m.toFixed(1)} °C, Влажность: ${current.relative_humidity_2m.toFixed(0)} %`;
+
+            // Нормализация
+            const maxTemp = Math.max(...temps);
+            const maxHum = Math.max(...hums);
+            const date0 = times[0].slice(0,10);
+
+            const tempChart = document.getElementById('temp-chart');
+            const tempHeader = document.createElement('h2');
+            tempHeader.innerText = 'Температура (°C)';
+            tempChart.appendChild(tempHeader);
+
+            // Гистограмма температуры
+            for (let i = 0; i < times.length; i++) {
+            const hour = times[i].slice(11,16);
+            const wrap = document.createElement('div');
+            wrap.className = 'bar-wrapper';
+            const bar = document.createElement('div');
+            bar.className = 'bar bar-temp';
+            bar.style.height = (temps[i]/maxTemp*200) + 'px';
+            wrap.appendChild(bar);
+            const label = document.createElement('div'); label.className='data-label'; label.innerText = temps[i].toFixed(1);
+            wrap.appendChild(label);
+            const timeLbl = document.createElement('div'); timeLbl.className='axis-label'; timeLbl.innerText=hour;
+            wrap.appendChild(timeLbl);
+            tempChart.appendChild(wrap);
+            }
+
+            // Заголовок влажности
+            const humChart = document.getElementById('hum-chart');
+            const humHeader = document.createElement('h2');
+            humHeader.innerText = 'Влажность (%)';
+            humChart.appendChild(humHeader);
+
+            // Гистограмма влажности
+            for (let i = 0; i < times.length; i++) {
+            const hour = times[i].slice(11,16);
+            const wrap = document.createElement('div');
+            wrap.className = 'bar-wrapper';
+            const bar = document.createElement('div');
+            bar.className = 'bar bar-hum';
+            bar.style.height = (hums[i]/maxHum*200) + 'px';
+            wrap.appendChild(bar);
+            const label = document.createElement('div'); label.className='data-label'; label.innerText = hums[i];
+            wrap.appendChild(label);
+            const timeLbl = document.createElement('div'); timeLbl.className='axis-label'; timeLbl.innerText=hour;
+            wrap.appendChild(timeLbl);
+            humChart.appendChild(wrap);
+            }
+
+            document.getElementById('load-btn').remove();
+        })
+    }
+  </script>
+</head>
+<body>
+  <header>
+    НГТУ, ФБ, Лабораторная 7 — Гистограммы погоды и влажности
+    <hr>
+  </header>
+  <main>
+    <button id="load-btn" onclick="showHistogram()" 
+            style="padding:8px 16px; font-size:16px; font-weight:bold; display:block; margin:20px auto;">
+      Показать гистограммы
+    </button>
+    <div id="current" class="current-values"></div>
+    <div id="temp-chart" class="chart-container"></div>
+    <div id="hum-chart" class="chart-container"></div>
+  </main>
+  <footer>
+    <hr>
+    &copy; Чинкевич Кирилл, ФБИ-32, 2 курс, 2025
+  </footer>
+</body>
+</html>
