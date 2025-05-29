@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогноз погоды — Лабораторная работа 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../lab3/favicon.ico">
+    <link rel="icon" href="../lab3/favicon-32x32.png">
+    <link rel="icon" href="../lab3/favicon-16x16.png">
+    <script>
+        function showWeather() {
+            const url = 'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok';
+            fetch(url)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(json) {
+                    const times = json.hourly.time;
+                    const temps = json.hourly.temperature_2m;
+                    // сегодняшняя дата (YYYY-MM-DD)
+                    const today = times[0].slice(0, 10);
+                    const targetHours = ['08:00', '12:00', '20:00'];
+
+                    const table = document.getElementById('weather-table');
+                    // стили таблицы
+                    table.style.marginTop = '15px';
+                    table.style.width = '80%';
+                    table.style.borderCollapse = 'collapse';
+                    table.style.margin = '15px auto';
+                    table.style.textAlign = 'center';
+
+                    // создание заголовка
+                    const headerRow = document.createElement('tr');
+                    const headers = ['Время', 'Температура (°C)'];
+                    for (let i = 0; i < headers.length; i++) {
+                        const th = document.createElement('th');
+                        th.innerText = headers[i];
+                        headerRow.appendChild(th);
+                        th.style.padding = '8px';
+                    }
+                    table.appendChild(headerRow);
+
+                    // вывод значений через обычные циклы
+                    for (let i = 0; i < times.length; i++) {
+                        // проверяем, что запись за сегодня
+                        if (times[i].slice(0, 10) === today) {
+                            // получаем часы и минуты
+                            const hour = times[i].slice(11, 16);
+                            // проверяем, входит ли время в целевые часы
+                            for (let j = 0; j < targetHours.length; j++) {
+                                if (hour === targetHours[j]) {
+                                    const tr = document.createElement('tr');
+                                    const tdTime = document.createElement('td');
+                                    tdTime.innerText = hour;
+                                    tdTime.style.padding = '8px';
+                                    tr.appendChild(tdTime);
+
+                                    const tdTemp = document.createElement('td');
+                                    tdTemp.innerText = temps[i];
+                                    tdTemp.style.padding = '8px';
+                                    tr.appendChild(tdTemp);
+
+                                    table.appendChild(tr);
+                                }
+                            }
+                        }
+                    }
+
+                    // удаление кнопки после вывода
+                    const btn = document.getElementById('weather-btn');
+                    btn.remove();
+                })
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7 — Прогноз погоды
+        <hr>
+    </header>
+    <main style="text-align:center;">
+        <button id="weather-btn" onclick="showWeather()" style="padding:10px 20px; font-size:16px; font-weight:bold;">
+            Показать прогноз погоды
+        </button>
+        <table id="weather-table" border="1"></table>
+    </main>
+    <footer>
+        <hr>
+        &copy; Чинкевич Кирилл, ФБИ-32, 2 курс, 2025
+    </footer>
+</body>
+</html>
